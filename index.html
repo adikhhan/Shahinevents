@@ -138,45 +138,46 @@
     }
 
     /* Firecracker animation (side launchers) */
-    .firecracker {
-      position: fixed;
-      bottom: 0;
-      width: 6px;
-      height: 20px;
-      background: #ffeb3b;
-      border-radius: 3px;
-      animation: shoot 2s ease-out forwards;
-      z-index: 1;
-    }
-    .firecracker::after {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
-      background: red;
-      border-radius: 50%;
-    }
-    @keyframes shoot {
-      0% { transform: translateY(0); opacity: 1; }
-      70% { transform: translateY(-80vh); opacity: 1; }
-      100% { transform: translateY(-90vh); opacity: 0; }
-    }
-    .explosion {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: yellow;
-      animation: explode 1s forwards;
-      opacity: 0.8;
-    }
-    @keyframes explode {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(4); opacity: 0; }
-    }
+   .firecracker {
+  position: fixed;
+  bottom: 0;
+  width: 6px;
+  height: 20px;
+  background: #ffeb3b;
+  border-radius: 3px;
+  animation: shoot 2s ease-out forwards;
+  z-index: 9999;
+}
+   .firecracker::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+}
+   @keyframes shoot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(-80vh); opacity: 1; }
+  100% { transform: translateY(-90vh); opacity: 0; }
+}
+   .explosion {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: yellow;
+  animation: explode 1s forwards;
+  opacity: 0.8;
+  z-index: 9999;
+}
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
 
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -284,25 +285,25 @@
   <div id="fireworks"></div>
 
   <script>
-    function openForm() {
-      document.getElementById("popupForm").style.display = "flex";
-    }
-    function closeForm() {
-      document.getElementById("popupForm").style.display = "none";
-    }
+   function openForm() {
+  document.getElementById("popupForm").style.display = "flex";
+}
+function closeForm() {
+  document.getElementById("popupForm").style.display = "none";
+}
 
-    document.getElementById("bookingForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      let name = document.getElementById("name").value;
-      let phone = document.getElementById("phone").value;
-      let email = document.getElementById("email").value;
-      let brand = document.getElementById("brand").value;
-      let description = document.getElementById("description").value;
-      let city = document.getElementById("city").value;
-      let stallType = document.getElementById("stallType").value;
-      let payment = document.getElementById("payment").value;
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let brand = document.getElementById("brand").value;
+  let description = document.getElementById("description").value;
+  let city = document.getElementById("city").value;
+  let stallType = document.getElementById("stallType").value;
+  let payment = document.getElementById("payment").value;
 
-      let msg = `📌 New Stall Booking:%0A
+  let msg = `📌 New Stall Booking:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
 Email: ${email}%0A
@@ -312,110 +313,118 @@ City: ${city}%0A
 Stall Type: ${stallType}%0A
 Payment Method: ${payment}`;
 
-      window.open(`https://wa.me/916351568936?text=${msg}`, "_blank");
-      closeForm();
-      this.reset();
-    });
+  window.open(`https://wa.me/916351568936?text=${msg}`, "_blank");
+  closeForm();
+  this.reset();
+});
 
-    // 🔥 Side Firecracker Animation
-    function launchFirecracker(side) {
-      const fireworks = document.getElementById("fireworks");
-      const cracker = document.createElement("div");
-      cracker.classList.add("firecracker");
-      cracker.style.left = side === "left" ? "15px" : "calc(100% - 25px)";
-      fireworks.appendChild(cracker);
+// 🔥 Side Firecracker Animation (mobile-friendly)
+function launchFirecracker(side) {
+  const fireworks = document.getElementById("fireworks");
+  const cracker = document.createElement("div");
+  cracker.classList.add("firecracker");
 
-      // Explosion
-      setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          const spark = document.createElement("div");
-          spark.classList.add("explosion");
-          spark.style.left = cracker.offsetLeft + Math.random() * 40 - 20 + "px";
-          spark.style.top = "15vh";
-          spark.style.background = ["red","yellow","blue","orange","green"][Math.floor(Math.random()*5)];
-          fireworks.appendChild(spark);
-          setTimeout(() => spark.remove(), 1000);
-        }
-        cracker.remove();
-      }, 1500);
+  // responsive positioning
+  cracker.style.left = side === "left" ? "5%" : "95%";
+  fireworks.appendChild(cracker);
+
+  // Explosion
+  setTimeout(() => {
+    for (let i = 0; i < 10; i++) {
+      const spark = document.createElement("div");
+      spark.classList.add("explosion");
+
+      // explosion around cracker’s position
+      spark.style.left = side === "left"
+        ? (5 + Math.random() * 10) + "%"
+        : (85 + Math.random() * 10) + "%";
+      spark.style.top = (15 + Math.random() * 10) + "vh";
+
+      spark.style.background = ["red","yellow","blue","orange","green"][Math.floor(Math.random()*5)];
+      fireworks.appendChild(spark);
+      setTimeout(() => spark.remove(), 1000);
     }
+    cracker.remove();
+  }, 1500);
+}
 
-    // Start side fireworks after intro
-    function startSideFireworks() {
-      setInterval(() => launchFirecracker("left"), 3000);
-      setInterval(() => launchFirecracker("right"), 4000);
-    }
+// Start side fireworks after intro
+function startSideFireworks() {
+  setInterval(() => launchFirecracker("left"), 3000);
+  setInterval(() => launchFirecracker("right"), 4000);
+}
 
-    // 🎆 Intro Full-Screen Fireworks (Canvas)
-    const canvas = document.getElementById('introFireworks');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
+// 🎆 Intro Full-Screen Fireworks (Canvas)
+const canvas = document.getElementById('introFireworks');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-    class Particle {
-      constructor(x, y, color) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.radius = Math.random() * 3 + 2;
-        this.speedX = (Math.random() - 0.5) * 6;
-        this.speedY = (Math.random() - 0.5) * 6;
-        this.alpha = 1;
-        this.decay = Math.random() * 0.02 + 0.01;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.alpha -= this.decay;
-      }
-      draw() {
-        ctx.globalAlpha = this.alpha;
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
-    }
+class Particle {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.radius = Math.random() * 3 + 2;
+    this.speedX = (Math.random() - 0.5) * 6;
+    this.speedY = (Math.random() - 0.5) * 6;
+    this.alpha = 1;
+    this.decay = Math.random() * 0.02 + 0.01;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.alpha -= this.decay;
+  }
+  draw() {
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
 
-    function createExplosion(x, y) {
-      const colors = ['#ff4081', '#ffd700', '#00e676', '#2196f3', '#ff5722'];
-      for (let i = 0; i < 50; i++) {
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        particles.push(new Particle(x, y, color));
-      }
-    }
+function createExplosion(x, y) {
+  const colors = ['#ff4081', '#ffd700', '#00e676', '#2196f3', '#ff5722'];
+  for (let i = 0; i < 50; i++) {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    particles.push(new Particle(x, y, color));
+  }
+}
 
-    function loop() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, i) => {
-        p.update();
-        p.draw();
-        if (p.alpha <= 0) particles.splice(i, 1);
-      });
-      requestAnimationFrame(loop);
-    }
+function loop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p, i) => {
+    p.update();
+    p.draw();
+    if (p.alpha <= 0) particles.splice(i, 1);
+  });
+  requestAnimationFrame(loop);
+}
 
-    // Intro fireworks
-    function introFireworks() {
-      const interval = setInterval(() => {
-        createExplosion(Math.random() * canvas.width, Math.random() * canvas.height);
-      }, 300);
-      setTimeout(() => {
-        clearInterval(interval);
-        canvas.style.display = "none"; // hide intro canvas
-        startSideFireworks(); // start side firecrackers
-      }, 5000);
-    }
+// Intro fireworks
+function introFireworks() {
+  const interval = setInterval(() => {
+    createExplosion(Math.random() * canvas.width, Math.random() * canvas.height);
+  }, 300);
+  setTimeout(() => {
+    clearInterval(interval);
+    canvas.style.display = "none"; // hide intro canvas
+    startSideFireworks(); // start side firecrackers
+  }, 5000);
+}
 
-    introFireworks();
-    loop();
+introFireworks();
+loop();
+
   </script>
 
 </body>
