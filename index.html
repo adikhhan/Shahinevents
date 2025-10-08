@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shahin Events - Grand Exhibition 2025</title>
+  <title>Shahin Events - Exhibition 2025</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -79,6 +79,8 @@
       text-align: center;
       padding: 20px;
     }
+
+    /* Popup Form */
     .popup {
       display: none;
       position: fixed;
@@ -134,6 +136,50 @@
     .submit-btn:hover {
       background: #e03570;
     }
+
+    /* Firecracker animation (side launchers) */
+   .firecracker {
+  position: fixed;
+  bottom: 0;
+  width: 6px;
+  height: 20px;
+  background: #ffeb3b;
+  border-radius: 3px;
+  animation: shoot 2s ease-out forwards;
+  z-index: 9999;
+}
+   .firecracker::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+}
+   @keyframes shoot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(-80vh); opacity: 1; }
+  100% { transform: translateY(-90vh); opacity: 0; }
+}
+   .explosion {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: yellow;
+  animation: explode 1s forwards;
+  opacity: 0.8;
+  z-index: 9999;
+}
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+    /* Responsive Design */
     @media (max-width: 768px) {
       header h1 { font-size: 1.8rem; }
       header p { font-size: 1rem; }
@@ -151,43 +197,62 @@
       .popup-content textarea { font-size: 0.9rem; }
       .submit-btn { font-size: 0.9rem; }
     }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Header / Hero Section -->
   <header>
-    <h1>SHAHIN EVENTS - GRAND EXHIBITION 2025</h1>
-    <p>17th, 18th & 19th October | Arose Banquet Hall, YMCA, SG Highway</p>
-    <button class="btn" onclick="openForm()">Book Your Stall Now</button>
+<h1>✨ Shahin Events ✨</h1>
+  <p>📅 17th, 18th & 19th October | 📍 Arose Banquet Hall, YMCA, SG Highway</p>
+  <button class="btn" onclick="openForm()">Book Your Stall Now</button>
   </header>
 
+  <!-- Exhibition Details -->
   <section>
-    <h2>Exhibition Highlights</h2>
-    <p>3 Days of Fashion • Food • Lifestyle • Entertainment</p>
+    <h2>🎉 What to Expect</h2>
+  <p>💫 Exciting Activities | 💫 Unique & Attractive Products | 💫 Food, Fashion & Lifestyle Stalls | 💫 Fun for All Ages</p>
 
-    <div class="cards">
-      <div class="card"><h3>Food Stall</h3><p>₹3000 — 2 Tables</p><p>₹4000 — 3 Tables</p></div>
-      <div class="card"><h3>Clothes & Accessories</h3><p>₹4500 — 2 Tables</p><p>₹6000 — 3 Tables</p><p>₹8000 — 5 Tables</p></div>
-      <div class="card"><h3>Advertisement Table</h3><p>₹2500 — Only for Brand Display or Product Showcase (No Sales)</p></div>
-    </div>
 
-    <h3 style="margin-top:40px;">Marketing Add-ons</h3>
-    <p>Brand Promotions • Video Shoots • Ramp Walk • Media Coverage</p>
+ <div class="cards">
+  <div class="card"><h3>Advertising Table Only</h3><p>₹2500 — 1 Table</p></div>
+  <div class="card"><h3>Food Stall</h3><p>₹3000 — 2 Tables</p></div>
+  <div class="card"><h3>Food Stall</h3><p>₹4000 — 3 Tables</p></div>
+  <div class="card"><h3>Clothes & Accessories Stall</h3><p>₹4500 — 2 Tables</p></div>
+  <div class="card"><h3>Clothes & Accessories Stall</h3><p>₹6000 — 3 Tables</p></div>
+  <div class="card"><h3>Clothes & Accessories Stall</h3><p>₹8000 — 5 Tables</p></div>
+</div>
+
+
+    <h3 style="margin-top:40px;">⭐ Benefits & Activities</h3>
+    <p>Lucky Draws • Competitions • Live Fashion Show • Free Newspaper Ads</p>
   </section>
 
+  <!-- Location -->
   <section class="map">
-    <h2>Location</h2>
-    <p>Arose Banquet Hall, YMCA, SG Highway, Ahmedabad</p>
+    <h2>📍 Our Location</h2>
+    <p>Shop No. 21, Seventh Heaven, Ayana Boutique, Makarba Road, Ahmedabad</p>
     <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.026268289094!2d72.50298997504006!3d23.02128547916745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b3a5b88a3a7%3A0xa8d715d6e1c3c7f!2sYMCA%20Club!5e0!3m2!1sen!2sin!4v1693309659265!5m2!1sen!2sin" 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.026268289094!2d72.50298997504006!3d23.02128547916745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b3a5b88a3a7%3A0xa8d715d6e1c3c7f!2sSeventh%20Heaven%20Complex!5e0!3m2!1sen!2sin!4v1693309659265!5m2!1sen!2sin" 
       allowfullscreen="" loading="lazy"></iframe>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>Enquiry & Stall Booking: +91 63515 68936 | 82382 11846</p>
+    <p>📞 Enquiry & Stall Booking: +91 63515 68936</p>
     <p>&copy; 2025 Shahin Events | All Rights Reserved</p>
   </footer>
 
+  <!-- Popup Booking Form -->
   <div class="popup" id="popupForm">
     <div class="popup-content">
       <span class="close-btn" onclick="closeForm()">&times;</span>
@@ -200,14 +265,15 @@
         <textarea id="description" placeholder="Stall Description" rows="3" required></textarea>
         <input type="text" id="city" placeholder="City / Location" required>
         <select id="stallType" required>
-          <option value="">Select Stall Type</option>
-          <option value="Advertisement Table - ₹2500 (Display Only)">Advertisement Table - ₹2500 (Display Only)</option>
-          <option value="Food Stall - ₹3000 (2 Tables)">Food Stall - ₹3000 (2 Tables)</option>
-          <option value="Food Stall - ₹4000 (3 Tables)">Food Stall - ₹4000 (3 Tables)</option>
-          <option value="Clothes & Accessories - ₹4500 (2 Tables)">Clothes & Accessories - ₹4500 (2 Tables)</option>
-          <option value="Clothes & Accessories - ₹6000 (3 Tables)">Clothes & Accessories - ₹6000 (3 Tables)</option>
-          <option value="Clothes & Accessories - ₹8000 (5 Tables)">Clothes & Accessories - ₹8000 (5 Tables)</option>
-        </select>
+  <option value="">Select Stall Type</option>
+  <option value="Advertising Table Only - Rs.2500">Advertising Table Only - Rs.2500</option>
+  <option value="Food Stall - 2 Tables - Rs.3000">Food Stall - 2 Tables - Rs.3000</option>
+  <option value="Food Stall - 3 Tables - Rs.4000">Food Stall - 3 Tables - Rs.4000</option>
+  <option value="Clothes & Accessories Stall - 2 Tables - Rs.4500">Clothes & Accessories Stall - 2 Tables - Rs.4500</option>
+  <option value="Clothes & Accessories Stall - 3 Tables - Rs.6000">Clothes & Accessories Stall - 3 Tables - Rs.6000</option>
+  <option value="Clothes & Accessories Stall - 5 Tables - Rs.8000">Clothes & Accessories Stall - 5 Tables - Rs.8000</option>
+</select>
+
         <select id="payment" required>
           <option value="">Select Payment Method</option>
           <option value="Credit/Debit Card">Credit/Debit Card</option>
@@ -220,26 +286,31 @@
     </div>
   </div>
 
+  <!-- Fireworks (canvas for intro) -->
+  <canvas id="introFireworks"></canvas>
+  <!-- Fireworks container (for side launchers) -->
+  <div id="fireworks"></div>
+
   <script>
-  function openForm() {
-    document.getElementById("popupForm").style.display = "flex";
-  }
-  function closeForm() {
-    document.getElementById("popupForm").style.display = "none";
-  }
+   function openForm() {
+  document.getElementById("popupForm").style.display = "flex";
+}
+function closeForm() {
+  document.getElementById("popupForm").style.display = "none";
+}
 
-  document.getElementById("bookingForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
-    let email = document.getElementById("email").value;
-    let brand = document.getElementById("brand").value;
-    let description = document.getElementById("description").value;
-    let city = document.getElementById("city").value;
-    let stallType = document.getElementById("stallType").value;
-    let payment = document.getElementById("payment").value;
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let brand = document.getElementById("brand").value;
+  let description = document.getElementById("description").value;
+  let city = document.getElementById("city").value;
+  let stallType = document.getElementById("stallType").value;
+  let payment = document.getElementById("payment").value;
 
-    let msg = `📌 New Stall Booking:%0A
+  let msg = `📌 New Stall Booking:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
 Email: ${email}%0A
@@ -249,10 +320,118 @@ City: ${city}%0A
 Stall Type: ${stallType}%0A
 Payment Method: ${payment}`;
 
-    window.open(`https://wa.me/916351568936?text=${msg}`, "_blank");
-    closeForm();
-    this.reset();
+  window.open(`https://wa.me/916351568936?text=${msg}`, "_blank");
+  closeForm();
+  this.reset();
+});
+
+// 🔥 Side Firecracker Animation (mobile-friendly)
+function launchFirecracker(side) {
+  const fireworks = document.getElementById("fireworks");
+  const cracker = document.createElement("div");
+  cracker.classList.add("firecracker");
+
+  // responsive positioning
+  cracker.style.left = side === "left" ? "5%" : "95%";
+  fireworks.appendChild(cracker);
+
+  // Explosion
+  setTimeout(() => {
+    for (let i = 0; i < 10; i++) {
+      const spark = document.createElement("div");
+      spark.classList.add("explosion");
+
+      // explosion around cracker’s position
+      spark.style.left = side === "left"
+        ? (5 + Math.random() * 10) + "%"
+        : (85 + Math.random() * 10) + "%";
+      spark.style.top = (15 + Math.random() * 10) + "vh";
+
+      spark.style.background = ["red","yellow","blue","orange","green"][Math.floor(Math.random()*5)];
+      fireworks.appendChild(spark);
+      setTimeout(() => spark.remove(), 1000);
+    }
+    cracker.remove();
+  }, 1500);
+}
+
+// Start side fireworks after intro
+function startSideFireworks() {
+  setInterval(() => launchFirecracker("left"), 3000);
+  setInterval(() => launchFirecracker("right"), 4000);
+}
+
+// 🎆 Intro Full-Screen Fireworks (Canvas)
+const canvas = document.getElementById('introFireworks');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.radius = Math.random() * 3 + 2;
+    this.speedX = (Math.random() - 0.5) * 6;
+    this.speedY = (Math.random() - 0.5) * 6;
+    this.alpha = 1;
+    this.decay = Math.random() * 0.02 + 0.01;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.alpha -= this.decay;
+  }
+  draw() {
+    ctx.globalAlpha = this.alpha;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
+
+function createExplosion(x, y) {
+  const colors = ['#ff4081', '#ffd700', '#00e676', '#2196f3', '#ff5722'];
+  for (let i = 0; i < 50; i++) {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    particles.push(new Particle(x, y, color));
+  }
+}
+
+function loop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p, i) => {
+    p.update();
+    p.draw();
+    if (p.alpha <= 0) particles.splice(i, 1);
   });
+  requestAnimationFrame(loop);
+}
+
+// Intro fireworks
+function introFireworks() {
+  const interval = setInterval(() => {
+    createExplosion(Math.random() * canvas.width, Math.random() * canvas.height);
+  }, 300);
+  setTimeout(() => {
+    clearInterval(interval);
+    canvas.style.display = "none"; // hide intro canvas
+    startSideFireworks(); // start side firecrackers
+  }, 5000);
+}
+
+introFireworks();
+loop();
+
   </script>
 
 </body>
