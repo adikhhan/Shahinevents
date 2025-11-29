@@ -102,9 +102,6 @@
       overflow-y: auto;
       max-height: 90vh;
     }
-    .popup-content h2 {
-      margin-top: 0;
-    }
     .popup-content input, 
     .popup-content select, 
     .popup-content textarea {
@@ -115,13 +112,7 @@
       border-radius: 8px;
       font-size: 1rem;
     }
-    .close-btn {
-      float: right;
-      font-size: 22px;
-      cursor: pointer;
-      color: #ff4081;
-      font-weight: bold;
-    }
+
     .submit-btn {
       background: #ff4081;
       color: white;
@@ -133,166 +124,81 @@
       margin-top: 10px;
       font-size: 1rem;
     }
-    .submit-btn:hover {
-      background: #e03570;
-    }
-
-    /* Firecracker animation (side launchers) */
-   .firecracker {
-  position: fixed;
-  bottom: 0;
-  width: 6px;
-  height: 20px;
-  background: #ffeb3b;
-  border-radius: 3px;
-  animation: shoot 2s ease-out forwards;
-  z-index: 9999;
-}
-   .firecracker::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: red;
-  border-radius: 50%;
-}
-   @keyframes shoot {
-  0% { transform: translateY(0); opacity: 1; }
-  70% { transform: translateY(-80vh); opacity: 1; }
-  100% { transform: translateY(-90vh); opacity: 0; }
-}
-   .explosion {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: yellow;
-  animation: explode 1s forwards;
-  opacity: 0.8;
-  z-index: 9999;
-}
-@keyframes explode {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(4); opacity: 0; }
-}
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.8rem; }
-      header p { font-size: 1rem; }
-      .card { width: 100%; max-width: 300px; }
-      section { padding: 30px 15px; }
-      .btn { width: 100%; max-width: 280px; }
-    }
-    @media (max-width: 480px) {
-      header { padding: 25px 15px; }
-      header h1 { font-size: 1.5rem; }
-      header p { font-size: 0.9rem; }
-      .popup-content { padding: 20px; }
-      .popup-content input,
-      .popup-content select,
-      .popup-content textarea { font-size: 0.9rem; }
-      .submit-btn { font-size: 0.9rem; }
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9998;
-    }
   </style>
 </head>
 <body>
 
   <!-- Header / Hero Section -->
   <header>
-<h1>✨ Shahin Events ✨</h1>
-  <p>📅 17th, 18th & 19th October | 📍 Arose Banquet Hall, YMCA, SG Highway</p>
-  <button class="btn" onclick="openForm()">Book Your Stall Now</button>
-  </header>
+<h1>✨ Shahin Events – Santa Theme Festival ✨</h1>
+<p>📅 30 & 31 December 2025 | 📍 Empire Party Plot, Ahmedabad</p>
+<button class="btn" onclick="openForm()">Book Your Stall Now</button>
+</header>
 
-  <!-- Exhibition Details -->
-  <section>
-    <h2>🎉 What to Expect</h2>
-  <p>💫 Exciting Activities | 💫 Unique & Attractive Products | 💫 Food, Fashion & Lifestyle Stalls | 💫 Fun for All Ages</p>
+<!-- Exhibition Details -->
+<section>
+<h2>🎉 What to Expect</h2>
+<p>🎅 Santa Theme • 🎸 Live Guitar • 👗 Kids Fashion Show • 🍔 Food Court • 🧒 Kids Activities • 🎁 Special Offers</p>
 
-
- <div class="cards">
-  <div class="card"><h3>Food Stall</h3><p>₹3000 — 2 Tables</p></div>
-  <div class="card"><h3>Food Stall</h3><p>₹4000 — 3 Tables</p></div>
-  <div class="card"><h3>Clothes & Accessories Stall</h3><p>₹4500 — 2 Tables</p></div>
-  <div class="card"><h3>Clothes & Accessories Stall</h3><p>₹6000 — 3 Tables</p></div>
-  <div class="card"><h3>Clothes & Accessories Stall</h3><p>₹8000 — 5 Tables</p></div>
-  <!-- <div class="card"><h3>Advertising Table Only</h3><p>₹2500 — 1 Table</p></div> -->
+<div class="cards">
+  <div class="card"><h3>Stay Food Stall</h3><p>₹2000 — 2 Tables</p></div>
+  <div class="card"><h3>Clothes & Accessories</h3><p>₹3000 — 2 Tables</p></div>
+  <div class="card"><h3>Large Stall</h3><p>₹4000 — 3 Tables</p></div>
 </div>
 
+<h3 style="margin-top:40px;">⭐ Highlights</h3>
+<p>Fun Activities • Christmas Theme Decor • Shopping • Entertainment • Food • Games</p>
+</section>
 
-    <h3 style="margin-top:40px;">⭐ Benefits & Activities</h3>
-    <p>Lucky Draws • Competitions • Live Fashion Show • Free Newspaper Ads</p>
-  </section>
+<!-- Location -->
+<section class="map">
+  <h2>📍 Event Location</h2>
+  <p>Empire Party Plot, Ahmedabad</p>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.026268289094!2d72.50298997504006!3d23.02128547916745!2m3!1f0!2f0!3f0" 
+    allowfullscreen="" loading="lazy"></iframe>
+</section>
 
-  <!-- Location -->
-  <section class="map">
-    <h2>📍 Our Location</h2>
-    <p>Shop No. 21, Seventh Heaven, Ayana Boutique, Makarba Road, Ahmedabad</p>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.026268289094!2d72.50298997504006!3d23.02128547916745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b3a5b88a3a7%3A0xa8d715d6e1c3c7f!2sSeventh%20Heaven%20Complex!5e0!3m2!1sen!2sin!4v1693309659265!5m2!1sen!2sin" 
-      allowfullscreen="" loading="lazy"></iframe>
-  </section>
+<!-- Footer -->
+<footer>
+<p>📞 Enquiry & Stall Booking: +91 63515 68936</p>
+<p>&copy; 2025 Shahin Events | All Rights Reserved</p>
+</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>📞 Enquiry & Stall Booking: +91 63515 68936</p>
-    <p>&copy; 2025 Shahin Events | All Rights Reserved</p>
-  </footer>
+<!-- Popup Booking Form -->
+<div class="popup" id="popupForm">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeForm()">&times;</span>
+    <h2>Book Your Stall</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="text" id="brand" placeholder="Brand / Collection Name" required>
+      <textarea id="description" placeholder="Stall Description" rows="3" required></textarea>
+      <input type="text" id="city" placeholder="City / Location" required>
 
-  <!-- Popup Booking Form -->
-  <div class="popup" id="popupForm">
-    <div class="popup-content">
-      <span class="close-btn" onclick="closeForm()">&times;</span>
-      <h2>Book Your Stall</h2>
-      <form id="bookingForm">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="tel" id="phone" placeholder="Phone Number" required>
-        <input type="email" id="email" placeholder="Email Address" required>
-        <input type="text" id="brand" placeholder="Brand / Collection Name" required>
-        <textarea id="description" placeholder="Stall Description" rows="3" required></textarea>
-        <input type="text" id="city" placeholder="City / Location" required>
-        <select id="stallType" required>
+<select id="stallType" required>
   <option value="">Select Stall Type</option>  
-  <option value="Food Stall - 2 Tables - Rs.3000">Food Stall - 2 Tables - Rs.3000</option>
-  <option value="Food Stall - 3 Tables - Rs.4000">Food Stall - 3 Tables - Rs.4000</option>
-  <option value="Clothes & Accessories Stall - 2 Tables - Rs.4500">Clothes & Accessories Stall - 2 Tables - Rs.4500</option>
-  <option value="Clothes & Accessories Stall - 3 Tables - Rs.6000">Clothes & Accessories Stall - 3 Tables - Rs.6000</option>
-  <option value="Clothes & Accessories Stall - 5 Tables - Rs.8000">Clothes & Accessories Stall - 5 Tables - Rs.8000</option>
-  <option value="Advertising Table Only - Rs.2500">Advertising Table Only - Rs.2500</option>
+  <option value="Stay Food Stall - 2 Tables - Rs.2000">Stay Food Stall - 2 Tables - Rs.2000</option>
+  <option value="Clothes & Accessories - 2 Tables - Rs.3000">Clothes & Accessories - 2 Tables - Rs.3000</option>
+  <option value="Large Stall - 3 Tables - Rs.4000">Large Stall - 3 Tables - Rs.4000</option>
 </select>
 
-        <select id="payment" required>
-          <option value="">Select Payment Method</option>
-          <option value="Credit/Debit Card">Credit/Debit Card</option>
-          <option value="Bank Transfer">Bank Transfer</option>
-          <option value="UPI">UPI</option>
-          <option value="Cash">Cash</option>
-        </select>
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
-    </div>
+<select id="payment" required>
+  <option value="">Select Payment Method</option>
+  <option value="UPI">UPI</option>
+  <option value="Bank Transfer">Bank Transfer</option>
+  <option value="Cash">Cash</option>
+</select>
+
+<button type="submit" class="submit-btn">Submit</button>
+</form>
   </div>
+</div>
 
-  <!-- Fireworks (canvas for intro) -->
-  <canvas id="introFireworks"></canvas>
-  <!-- Fireworks container (for side launchers) -->
-  <div id="fireworks"></div>
-
-  <script>
-   function openForm() {
+<script>
+function openForm() {
   document.getElementById("popupForm").style.display = "flex";
 }
 function closeForm() {
@@ -301,139 +207,23 @@ function closeForm() {
 
 document.getElementById("bookingForm").addEventListener("submit", function(event) {
   event.preventDefault();
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let email = document.getElementById("email").value;
-  let brand = document.getElementById("brand").value;
-  let description = document.getElementById("description").value;
-  let city = document.getElementById("city").value;
-  let stallType = document.getElementById("stallType").value;
-  let payment = document.getElementById("payment").value;
 
-  let msg = `📌 New Stall Booking:%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Email: ${email}%0A
-Brand: ${brand}%0A
-Description: ${description}%0A
-City: ${city}%0A
-Stall Type: ${stallType}%0A
-Payment Method: ${payment}`;
+  let msg = 
+`📌 New Stall Booking:%0A
+Name: ${name.value}%0A
+Phone: ${phone.value}%0A
+Email: ${email.value}%0A
+Brand: ${brand.value}%0A
+Description: ${description.value}%0A
+City: ${city.value}%0A
+Stall Type: ${stallType.value}%0A
+Payment Method: ${payment.value}`;
 
   window.open(`https://wa.me/916351568936?text=${msg}`, "_blank");
   closeForm();
   this.reset();
 });
-
-// 🔥 Side Firecracker Animation (mobile-friendly)
-function launchFirecracker(side) {
-  const fireworks = document.getElementById("fireworks");
-  const cracker = document.createElement("div");
-  cracker.classList.add("firecracker");
-
-  // responsive positioning
-  cracker.style.left = side === "left" ? "5%" : "95%";
-  fireworks.appendChild(cracker);
-
-  // Explosion
-  setTimeout(() => {
-    for (let i = 0; i < 10; i++) {
-      const spark = document.createElement("div");
-      spark.classList.add("explosion");
-
-      // explosion around cracker’s position
-      spark.style.left = side === "left"
-        ? (5 + Math.random() * 10) + "%"
-        : (85 + Math.random() * 10) + "%";
-      spark.style.top = (15 + Math.random() * 10) + "vh";
-
-      spark.style.background = ["red","yellow","blue","orange","green"][Math.floor(Math.random()*5)];
-      fireworks.appendChild(spark);
-      setTimeout(() => spark.remove(), 1000);
-    }
-    cracker.remove();
-  }, 1500);
-}
-
-// Start side fireworks after intro
-function startSideFireworks() {
-  setInterval(() => launchFirecracker("left"), 3000);
-  setInterval(() => launchFirecracker("right"), 4000);
-}
-
-// 🎆 Intro Full-Screen Fireworks (Canvas)
-const canvas = document.getElementById('introFireworks');
-const ctx = canvas.getContext('2d');
-let particles = [];
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-class Particle {
-  constructor(x, y, color) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.radius = Math.random() * 3 + 2;
-    this.speedX = (Math.random() - 0.5) * 6;
-    this.speedY = (Math.random() - 0.5) * 6;
-    this.alpha = 1;
-    this.decay = Math.random() * 0.02 + 0.01;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.alpha -= this.decay;
-  }
-  draw() {
-    ctx.globalAlpha = this.alpha;
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = 1;
-  }
-}
-
-function createExplosion(x, y) {
-  const colors = ['#ff4081', '#ffd700', '#00e676', '#2196f3', '#ff5722'];
-  for (let i = 0; i < 50; i++) {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    particles.push(new Particle(x, y, color));
-  }
-}
-
-function loop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p, i) => {
-    p.update();
-    p.draw();
-    if (p.alpha <= 0) particles.splice(i, 1);
-  });
-  requestAnimationFrame(loop);
-}
-
-// Intro fireworks
-function introFireworks() {
-  const interval = setInterval(() => {
-    createExplosion(Math.random() * canvas.width, Math.random() * canvas.height);
-  }, 300);
-  setTimeout(() => {
-    clearInterval(interval);
-    canvas.style.display = "none"; // hide intro canvas
-    startSideFireworks(); // start side firecrackers
-  }, 5000);
-}
-
-introFireworks();
-loop();
-
-  </script>
+</script>
 
 </body>
 </html>
-
