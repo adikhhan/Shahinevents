@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shahin Events - Exhibition 2025</title>
+  <title>Shahin Events - Christmas Festival 2025</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f7f7f7;
+      background: #f2f6ff;
       color: #333;
       overflow-x: hidden;
     }
     header {
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      background: linear-gradient(to right, #ff4d4d, #ff7b7b);
       color: white;
       padding: 40px 20px;
       text-align: center;
@@ -36,14 +36,14 @@
       font-size: 1rem;
       font-weight: bold;
       background: #fff;
-      color: #ff4081;
+      color: #c6002f;
       border: none;
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
     }
     .btn:hover {
-      background: #ffe4ec;
+      background: #ffe4e8;
     }
     section {
       padding: 40px 20px;
@@ -67,6 +67,21 @@
     .card:hover {
       transform: scale(1.05);
     }
+
+    /* Santa GIF Animation */
+    .santa {
+      position: fixed;
+      bottom: 10px;
+      left: -150px;
+      width: 120px;
+      z-index: 9999;
+      animation: santaMove 10s linear infinite;
+    }
+    @keyframes santaMove {
+      0% { left: -150px; }
+      100% { left: 110%; }
+    }
+
     .map iframe {
       width: 100%;
       height: 350px;
@@ -102,8 +117,8 @@
       overflow-y: auto;
       max-height: 90vh;
     }
-    .popup-content input, 
-    .popup-content select, 
+    .popup-content input,
+    .popup-content select,
     .popup-content textarea {
       width: 100%;
       margin: 8px 0;
@@ -114,7 +129,7 @@
     }
 
     .submit-btn {
-      background: #ff4081;
+      background: #d60036;
       color: white;
       padding: 14px;
       border: none;
@@ -124,50 +139,73 @@
       margin-top: 10px;
       font-size: 1rem;
     }
-  </style>
+
+    /* Mobile Responsive */
+    @media(max-width:600px){
+      header h1 { font-size: 1.6rem; }
+      header p { font-size: 1rem; }
+      .card { width: 100%; }
+      .santa { width: 90px; }
+    }
+  /* Snowfall Animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 9999;
+      user-select: none;
+      pointer-events: none;
+      color: white;
+      font-size: 1.2rem;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0.3; }
+    }
+</style>
 </head>
 <body>
 
-  <!-- Header / Hero Section -->
-  <header>
-<h1>✨ Shahin Events – Santa Theme Festival ✨</h1>
-<p>📅 30 & 31 December 2025 | 📍 Empire Party Plot, Ahmedabad</p>
-<button class="btn" onclick="openForm()">Book Your Stall Now</button>
+<!-- Santa Animation GIF -->
+
+
+<header>
+  <h1>🎄 Shahin Events – Christmas Festival 🎅</h1>
+  <p>📅 30 & 31 December 2025 | 📍 Empire Party Plot, Ahmedabad</p>
+  <button class="btn" onclick="openForm()">Book Your Stall Now</button>
 </header>
 
-<!-- Exhibition Details -->
 <section>
-<h2>🎉 What to Expect</h2>
-<p>🎅 Santa Theme • 🎸 Live Guitar • 👗 Kids Fashion Show • 🍔 Food Court • 🧒 Kids Activities • 🎁 Special Offers</p>
+  <h2>🎉 Event Attractions</h2>
+  <p>🎅 Santa Theme • 🎸 Live Guitar • 👗 Kids Fashion Show • 🍔 Food Court • 🧒 Kids Zone • 🌙 Sufi Night • 🎁 Christmas Market</p>
 
-<div class="cards">
-  <div class="card"><h3>Stay Food Stall</h3><p>₹2000 — 2 Tables</p></div>
-  <div class="card"><h3>Clothes & Accessories</h3><p>₹2000 — 1 Tables</p></div>
-  <div class="card"><h3>Large Stall</h3><p>₹4000 — 3 Tables</p></div>
-</div>
+  <div class="cards">
+    <div class="card"><h3>Stay Food Stall</h3><p>₹2000 — 2 Tables</p></div>
+    <div class="card"><h3>Clothes & Accessories</h3><p>₹2000 — 1 Table</p></div>
+    <div class="card"><h3>Large Stall</h3><p>₹4000 — 3 Tables</p></div>
+  </div>
 
-<h3 style="margin-top:40px;">⭐ Highlights</h3>
-<p>Fun Activities • Christmas Theme Decor • Shopping • Entertainment • Food • Games</p>
+  <h3 style="margin-top:40px;">⭐ Highlights</h3>
+  <p>Christmas Decor • Sufi Night • Fun Games • Santa Parade • Live Music • Food & Shopping</p>
 </section>
 
-<!-- Location -->
 <section class="map">
   <h2>📍 Event Location</h2>
   <p>Empire Party Plot, Ahmedabad</p>
- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4356.78330959637!2d72.5118815758807!3d22.99079801751218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9ac965b501f9%3A0x858b17eeeb8fa9bb!2sEmpire%20Party%20Plot!5e1!3m2!1sen!2sin!4v1765555644392!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4356.78330959637!2d72.5118815758807!3d22.99079801751218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9ac965b501f9%3A0x858b17eeeb8fa9bb!2sEmpire%20Party%20Plot!5e1!3m2!1sen!2sin!4v1765555644392!5m2!1sen!2sin"></iframe>
 </section>
 
-<!-- Footer -->
 <footer>
-<p>📞 Enquiry & Stall Booking: +91 63515 68936</p>
-<p>&copy; 2025 Shahin Events | All Rights Reserved</p>
+  <p>📞 Enquiry & Stall Booking: +91 63515 68936</p>
+  <p>&copy; 2025 Shahin Events | All Rights Reserved</p>
 </footer>
 
 <!-- Popup Booking Form -->
 <div class="popup" id="popupForm">
   <div class="popup-content">
-    <span class="close-btn" onclick="closeForm()">&times;</span>
+    <span class="close-btn" onclick="closeForm()" style="float:right;font-size:24px;cursor:pointer">&times;</span>
     <h2>Book Your Stall</h2>
+
     <form id="bookingForm">
       <input type="text" id="name" placeholder="Name" required>
       <input type="tel" id="phone" placeholder="Phone Number" required>
@@ -176,22 +214,22 @@
       <textarea id="description" placeholder="Stall Description" rows="3" required></textarea>
       <input type="text" id="city" placeholder="City / Location" required>
 
-<select id="stallType" required>
-  <option value="">Select Stall Type</option>  
-  <option value="Stay Food Stall - 2 Tables - Rs.2000">Stay Food Stall - 2 Tables - Rs.2000</option>
-  <option value="Clothes & Accessories - 1 Tables - Rs.2000">Clothes & Accessories - 1 Tables - Rs.2000</option>
-  <option value="Large Stall - 3 Tables - Rs.4000">Large Stall - 3 Tables - Rs.4000</option>
-</select>
+      <select id="stallType" required>
+        <option value="">Select Stall Type</option>
+        <option value="Stay Food Stall - 2 Tables - Rs.2000">Stay Food Stall - 2 Tables - Rs.2000</option>
+        <option value="Clothes & Accessories - 1 Table - Rs.2000">Clothes & Accessories - 1 Table - Rs.2000</option>
+        <option value="Large Stall - 3 Tables - Rs.4000">Large Stall - 3 Tables - Rs.4000</option>
+      </select>
 
-<select id="payment" required>
-  <option value="">Select Payment Method</option>
-  <option value="UPI">UPI</option>
-  <option value="Bank Transfer">Bank Transfer</option>
-  <option value="Cash">Cash</option>
-</select>
+      <select id="payment" required>
+        <option value="">Select Payment Method</option>
+        <option value="UPI">UPI</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="Cash">Cash</option>
+      </select>
 
-<button type="submit" class="submit-btn">Submit</button>
-</form>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
   </div>
 </div>
 
@@ -206,8 +244,7 @@ function closeForm() {
 document.getElementById("bookingForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  let msg = 
-`📌 New Stall Booking:%0A
+  let msg = `📌 New Stall Booking:%0A
 Name: ${name.value}%0A
 Phone: ${phone.value}%0A
 Email: ${email.value}%0A
@@ -223,6 +260,18 @@ Payment Method: ${payment.value}`;
 });
 </script>
 
+<script>
+// Generate Snowflakes
+for (let i = 0; i < 25; i++) {
+  let snow = document.createElement('div');
+  snow.className = 'snowflake';
+  snow.textContent = '❄';
+  snow.style.left = Math.random() * 100 + 'vw';
+  snow.style.animationDuration = (Math.random() * 5 + 4) + 's';
+  snow.style.opacity = Math.random();
+  snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+  document.body.appendChild(snow);
+}
+</script>
 </body>
 </html>
-
