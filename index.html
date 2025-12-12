@@ -147,7 +147,8 @@
       .card { width: 100%; }
       .santa { width: 90px; }
     }
-  /* Snowfall Animation */
+
+    /* Snowfall Animation */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -166,9 +167,6 @@
 </head>
 <body>
 
-<!-- Santa Animation GIF -->
-
-
 <header>
   <h1>🎄 Shahin Events – Christmas Festival 🎅</h1>
   <p>📅 30 & 31 December 2025 | 📍 Empire Party Plot, Ahmedabad</p>
@@ -180,13 +178,21 @@
   <p>🎅 Santa Theme • 🎸 Live Guitar • 👗 Kids Fashion Show • 🍔 Food Court • 🧒 Kids Zone • 🌙 Sufi Night • 🎁 Christmas Market</p>
 
   <div class="cards">
+
     <div class="card"><h3>Stay Food Stall</h3><p>₹2000 — 2 Tables</p></div>
     <div class="card"><h3>Clothes & Accessories</h3><p>₹2000 — 1 Table</p></div>
     <div class="card"><h3>Large Stall</h3><p>₹4000 — 3 Tables</p></div>
+
+    <!-- ➕ Added Kids Fashion Competition Card -->
+    <div class="card" style="border:2px solid #ff4d4d;">
+      <h3>Kids Fashion Competition</h3>
+      <p>Entry Fee: ₹299</p>
+    </div>
+
   </div>
 
   <h3 style="margin-top:40px;">⭐ Highlights</h3>
-  <p>Christmas Decor • Sufi Night • Fun Games • Santa Parade • Live Music • Food & Shopping</p>
+  <p>Christmas Decor • Sufi Night • Fun Games • Santa Parade • Live Music • Food & Shopping • Kids Fashion Competition</p>
 </section>
 
 <section class="map">
@@ -204,21 +210,25 @@
 <div class="popup" id="popupForm">
   <div class="popup-content">
     <span class="close-btn" onclick="closeForm()" style="float:right;font-size:24px;cursor:pointer">&times;</span>
-    <h2>Book Your Stall</h2>
+    <h2>Book Your Stall / Competition</h2>
 
     <form id="bookingForm">
       <input type="text" id="name" placeholder="Name" required>
       <input type="tel" id="phone" placeholder="Phone Number" required>
       <input type="email" id="email" placeholder="Email Address" required>
-      <input type="text" id="brand" placeholder="Brand / Collection Name" required>
-      <textarea id="description" placeholder="Stall Description" rows="3" required></textarea>
+      <input type="text" id="brand" placeholder="Brand / Collection Name (Optional)">
+      <textarea id="description" placeholder="Details / Query" rows="3" required></textarea>
       <input type="text" id="city" placeholder="City / Location" required>
 
       <select id="stallType" required>
-        <option value="">Select Stall Type</option>
+        <option value="">Select Option</option>
         <option value="Stay Food Stall - 2 Tables - Rs.2000">Stay Food Stall - 2 Tables - Rs.2000</option>
         <option value="Clothes & Accessories - 1 Table - Rs.2000">Clothes & Accessories - 1 Table - Rs.2000</option>
         <option value="Large Stall - 3 Tables - Rs.4000">Large Stall - 3 Tables - Rs.4000</option>
+
+        <!-- ➕ Added New Competition Option -->
+        <option value="Kids Fashion Competition - Entry Fee Rs.299">Kids Fashion Competition - Entry Fee Rs.299</option>
+
       </select>
 
       <select id="payment" required>
@@ -244,14 +254,14 @@ function closeForm() {
 document.getElementById("bookingForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  let msg = `📌 New Stall Booking:%0A
+  let msg = `📌 New Booking:%0A
 Name: ${name.value}%0A
 Phone: ${phone.value}%0A
 Email: ${email.value}%0A
 Brand: ${brand.value}%0A
 Description: ${description.value}%0A
 City: ${city.value}%0A
-Stall Type: ${stallType.value}%0A
+Selected Option: ${stallType.value}%0A
 Payment Method: ${payment.value}`;
 
   window.open(`https://wa.me/916351568936?text=${msg}`, "_blank");
